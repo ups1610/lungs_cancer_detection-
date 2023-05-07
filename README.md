@@ -2,11 +2,12 @@
 
 Buidling a package that detect the lung cancer with the help of images using cnn/ transfer learning
 To run the project do the necessary steps :
-*** constraints ***
+
+*constraints*
 
 python 3.8 version
 
-*** set run environment ***
+*set run environment*
 
 clone the repository using 
 ```
