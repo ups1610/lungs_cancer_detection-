@@ -20,19 +20,20 @@ class visualize:
         self.path=path
 
     def make_list(self):
-        self.classes = os.listdir(self.path)    
+        self.classes = os.listdir(self.path) 
+        return self.classes   
 
     def show_img(self):
         for cat in self.classes:
-           self.image_dir = f'{path}/{cat}'
-           images = os.listdir(image_dir)
+           self.image_dir = f'{self.path}/{cat}'
+           images = os.listdir(self.image_dir)
     
            fig, ax =plt.subplots(1,3,figsize=(15,5))
            fig.suptitle(f'Images for {cat} category....', fontsize = 20)
     
            for i in range(3):
                k = np.random.randint(0,len(images))
-               img = np.array(Image.open(f'{path}/{cat}/{images[k]}'))
+               img = np.array(Image.open(f'{self.path}/{cat}/{images[k]}'))
                ax[i].imshow(img)
                ax[i].axis('off')
                plt.show()    
