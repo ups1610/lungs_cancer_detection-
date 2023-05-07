@@ -41,6 +41,13 @@ class preprocess:
                 Y.append(i)
             X = np.asarray(X)
             one_hot_encoded_Y = pd.get_dummies(Y).values
-            return one_hot_encoded_Y     
+            return one_hot_encoded_Y   
+
+
+if __name__ == "__main__":
+    p = preprocess('lung_colon_image_set/lung_image_sets')  
+    p.hyp_tune(256,0.2,10,64) 
+    print(p.convert()) 
+
 
 
