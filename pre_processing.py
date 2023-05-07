@@ -15,10 +15,11 @@ import tensorflow as tf
 from tensorflow import keras
 from keras import layers
 
-from data_visualization import visualize as vi
+from data_visualization import visualize
 
 class preprocess:
     def __init__(self,path):
+        vi = visualize('lung_colon_image_set/lung_image_sets')
         self.classes = vi.make_list()
         self.path = path
 
