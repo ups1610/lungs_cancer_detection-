@@ -28,8 +28,9 @@ class preprocess:
         self.split = split 
         self.epochs = epochs 
         self.batch_size = batch_size
+        return self.img_size, self.split , self.epochs , self.batch_size
 
-    def convert(self):
+    def convert(self,img_size):
         X=[]
         Y=[]
         for i, cat in enumerate(self.classes):
@@ -38,17 +39,17 @@ class preprocess:
             for image in images:
                 img = cv2.imread(image)
 
-                X.append(cv2.resize(img, (self.img_size, self.img_size)))
+                X.append(cv2.resize(img, (img_size, img_size)))
                 Y.append(i)
             X = np.asarray(X)
             one_hot_encoded_Y = pd.get_dummies(Y).values
-            return one_hot_encoded_Y   
+            return X,one_hot_encoded_Y   
 
 
 if __name__ == "__main__":
     p = preprocess('lung_colon_image_set/lung_image_sets')  
-    p.hyp_tune(256,0.2,10,64) 
-    print(p.convert()) 
+    print(p.hyp_tune(256,0.2,10,64)) 
+    print(p.convert(256)) 
 
 
 
