@@ -27,7 +27,12 @@ pip install -r requirements.txt
 
 dataset can be collected from kaggle https://www.kaggle.com/datasets/andrewmvd/lung-and-colon-cancer-histopathological-images. 
 It contains 5k images in jpeg format.
-Download the zip file from the kaggle and store the zip folder under the folder where other files settled down.
+Download the zip file from the kaggle and store the zip folder under the folder where other files settled down using the command
+
+```
+python dataset_import.py
+```
+
 
 ### Data visualization
 
@@ -35,3 +40,34 @@ After download the dataset run the command
 ```
 python data_visualization.py
 ```
+This file created to get the visualization of data i.e images in form of jpeg 
+
+### Data Preprocessing
+
+run the command
+
+```
+python pre_processing.py
+```
+
+This file is used to convert the image in array form containg the pixel values .
+
+For that data is then returning images pixels i.e X and performed one hot encoded values.
+
+### Model Preparing, Creation and Evaluation
+
+run the command 
+
+```
+python model.py
+```
+
+Data then divided in training phase and testing phase.
+
+Using the CNN model data get trained and a model is stored in history variable containing the summary of the model .
+
+Before training the model model get hyper-tuined to increase the accuracy and burn the less loss.
+
+After the creation of the model data get visualized using graphs showing the performance of the data.
+
+Further confusion matrix is created to get the whole details of the data with an accuracy of more than 91%

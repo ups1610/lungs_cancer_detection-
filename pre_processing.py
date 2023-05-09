@@ -23,11 +23,11 @@ class preprocess:
         self.classes = vi.make_list()
         self.path = path
 
-    def hyp_tune(self,img_size,split,epochs,batch_size):
-        self.img_size = img_size
-        self.split = split 
-        self.epochs = epochs 
-        self.batch_size = batch_size
+    def hyp_tune(self):
+        self.img_size = 256
+        self.split = 0.2 
+        self.epochs = 10 
+        self.batch_size = 64
         return self.img_size, self.split , self.epochs , self.batch_size
 
     def convert(self,img_size):
