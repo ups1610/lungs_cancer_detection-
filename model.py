@@ -81,7 +81,7 @@ class build_model:
                     print('\n Validation accuracy has reached upto \90% so, stopping further training.')
                     self.model.stop_training = True
         es = EarlyStopping(patience=3, monitor='val_accuracy', restore_best_weights=True)
-        lr = ReduceLROnPlateau(monitor='val_loss',patience=3,factor=0.5,verbose=1)
+        lr = ReduceLROnPlateau(monitor='val_loss',patience=2,factor=0.5,verbose=1)
         print(model)
         history = model.fit(self.X_train, self.Y_train,
                     validation_data = (self.X_test, self.Y_test),
@@ -113,7 +113,7 @@ class build_model:
 
 if __name__ == "__main__":
     m_obj = build_model()
-    m_obj.training()
+    print(m_obj.training())
     model = m_obj.classifer(256)
     history = m_obj.compilation(model)
     m_obj.visualize_accuracy(history)
